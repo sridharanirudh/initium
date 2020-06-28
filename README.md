@@ -45,12 +45,12 @@ To contribute, you can edit the `recommendation.json` file in the format specifi
 
 ## Future Updates
 
-> Adding more language support
+* Adding more language support
 
-> We plan on creating the HTML content dynamically by adding more keys in the recommendation file.
+* We plan on creating the HTML content dynamically by adding more keys in the recommendation file.
 
-> Add version support so that it is similar to how package.json works
+* Add version support so that it is similar to how package.json works
 
-> Export the list of packages to make it easier for instructors to share the settings and extensions they feel would make the most sense.
+* Export the list of packages to make it easier for instructors to share the settings and extensions they feel would make the most sense.
 
-> Add packages based on the proficiency level of the user/student to help match their needs
+* Add packages based on the proficiency level of the user/student to help match their needs
