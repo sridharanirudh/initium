@@ -3,6 +3,8 @@
 	"displayName": "initium",
 	"description": "Extensions to make coding easy",
 	"version": "0.0.1",
+	"publisher": "alfasierra",
+	"icon": "images/logo.jpeg",
 	"engines": {
 		"vscode": "^1.46.0"
 	},
