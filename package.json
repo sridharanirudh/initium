@@ -10,14 +10,14 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:initium.helloWorld"
+		"onCommand:initium.start"
 	],
 	"main": "./src/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "initium.helloWorld",
-				"title": "Hello World"
+				"command": "initium.start",
+				"title": "Launch initium dashboard"
 			}
 		]
 	},
