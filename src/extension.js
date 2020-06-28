@@ -49,14 +49,14 @@ function getWebviewContent() {
 	  <title>Initium Dashboard</title>
   </head>
   <body>
-  <form onsubmit="return false">
+  <form enctype='application/json'>
   <div>
     <span style={display:inline-block;}><input type="image" src="https://cdn1.iconfinder.com/data/icons/essentials-blue-tone-1/100/Essentials_check_done_complete-512.png" alt="Essentials" width="50" height="50"></span>
 	<span style={display:inline-block;}><h2>Essentials</h2></span>
 	<ul>
-  		<li><input type="checkbox" checked> GitLens</li>
-		<li><input type="checkbox" checked> Code Spell Checker</li>
-		<li><input type="checkbox" checked> TODO Highlight</li>
+  		<li><input type="checkbox" name='gitlens' checked> GitLens</li>
+		<li><input type="checkbox" name='spellCheck' checked> Code Spell Checker</li>
+		<li><input type="checkbox" name='todo' checked> TODO Highlight</li>
   	</ul>
   </div>
   
@@ -64,9 +64,9 @@ function getWebviewContent() {
 	<span style={display:inline-block;}><input type="image" src="https://cdn.ccdc.cam.ac.uk/content/images/products/Product-Python.png" alt="Python" width="50" height="50"></span>
 	<span style={display:inline-block;}><h2>Python</h2></span>
     <ul>
-  		<li><input type="checkbox"> Python</li>
-		<li><input type="checkbox"> Code Runner</li>
-		<li><input type="checkbox"> Linter</li>
+  		<li><input type="checkbox" name='python'> Python</li>
+		<li><input type="checkbox" name='codeRunner'> Code Runner</li>
+		<li><input type="checkbox" name='linter'> Linter</li>
 	</ul>
   </div>
 
@@ -74,9 +74,9 @@ function getWebviewContent() {
 	<span style={display:inline-block;}><input type="image" src="https://icons-for-free.com/iconfiles/png/512/install+javascript+js+node+npm+tools+icon-1320165731324625592.png" alt="JavaScript" width="50" height="50"></span>
 	<span style={display:inline-block;}><h2>Javascript</h2></span>
   	<ul>
-  		<li><input type="checkbox"> Quokka.js</li>
-		<li><input type="checkbox"> ESLint</li>
-		<li><input type="checkbox"> Prettier</li>
+  		<li><input type="checkbox" name='quokka'> Quokka.js</li>
+		<li><input type="checkbox" name='eslint'> ESLint</li>
+		<li><input type="checkbox" name='prettier'> Prettier</li>
 	</ul>
   </div>
 
@@ -84,8 +84,8 @@ function getWebviewContent() {
 	<span style={display:inline-block;}><input type="image" src="https://i.ya-webdesign.com/images/code-icon-png-7.png" alt="Miscellaneous" width="50" height="50"></span>
 	<span style={display:inline-block;}><h2>Potpourri</h2></span>
   	<ul>
-  		<li><input type="checkbox"> Bookmarks</li>
-		<li><input type="checkbox"> Bracket Pair Colorizer</li>
+  		<li><input type="checkbox" name='bookmarks'> Bookmarks</li>
+		<li><input type="checkbox" name='pairColorizer'> Bracket Pair Colorizer</li>
 	</ul>
   </div>
 
@@ -93,8 +93,8 @@ function getWebviewContent() {
 	<span style={display:inline-block;}><input type="image" src="https://vectorified.com/images/advanced-icon-14.png" alt="Advanced" width="50" height="50"></span>
 	<span style={display:inline-block;}><h2>Advanced</h2></span>
 	<ul>
-  		<li><input type="checkbox"> Regex Previewer</li>
-		<li><input type="checkbox"> REST Client</li>
+  		<li><input type="checkbox" name='regexPrev'> Regex Previewer</li>
+		<li><input type="checkbox" name='restClient'> REST Client</li>
 	</ul>
   </div>
   <input value="Submit" type="submit" onclick="submitform()">
