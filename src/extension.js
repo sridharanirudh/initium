@@ -53,15 +53,6 @@ function fetchInstalledExtensions() {
 	return extensions
 }
 
-function readJSON(fpath) {
-	fs.readFile(fpath, (err, data) => {
-		if (err) {
-			console.error(err)
-		}
-		console.log(data)
-	})
-}
-
 async function installPackage(packageIdentifier) {
 	await vscode.commands.executeCommand("workbench.extensions.installExtension", packageIdentifier)
 }
@@ -75,9 +66,6 @@ function activate(context) {
 	let populateCategories = vscode.commands.registerCommand(
 		'initium.populateCategories', () => {
 	})
-
-
-
 
 	let disposable = vscode.commands.registerCommand('initium.start', () => {
 		vscode.window.showInformationMessage("Welcome to initium dashboard!");
