@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const { Extension } = require('typescript');
 
 const TOINSTALL = {
     "JavaScript": {
@@ -58,6 +59,9 @@ async function installPackage(packageIdentifier) {
 }
 
 function activate(context) {
+	console.log(
+		'Congratulations, your extension "initium" is now active!'
+	  );
 	let displayExisitingExtensions = vscode.commands.registerCommand(
 		'initium.fetchExisitingExtensions', () => {
 			let installedExtensions = fetchInstalledExtensions()
@@ -69,8 +73,15 @@ function activate(context) {
 
 	let disposable = vscode.commands.registerCommand('initium.start', () => {
 		vscode.window.showInformationMessage("Welcome to initium dashboard!");
-		const panel = vscode.window.createWebviewPanel('initiumDashboard', 'Inititum Dashboard', vscode.ViewColumn.One, {});
+		const panel = vscode.window.createWebviewPanel('initiumDashboard', 'Inititum Dashboard', vscode.ViewColumn.One, 
+		{
+			// Enable scripts in the webview
+			enableScripts: true
+		});
 		panel.webview.html = getWebviewContent();
+
+		//File path
+		//console.log(context.extensionPath);
 	})
 
 	context.subscriptions.push(disposable)
@@ -89,7 +100,7 @@ function getWebviewContent() {
 	  <title>Initium Dashboard</title>
   </head>
   <body>
-  <form enctype='application/json'>
+  <form name="userChecklist" id="form">
   <div>
     <span style={display:inline-block;}><input type="image" src="https://cdn1.iconfinder.com/data/icons/essentials-blue-tone-1/100/Essentials_check_done_complete-512.png" alt="Essentials" width="50" height="50"></span>
 	<span style={display:inline-block;}><h2>Essentials</h2></span>
@@ -137,8 +148,18 @@ function getWebviewContent() {
 		<li><input type="checkbox" name='restClient'> REST Client</li>
 	</ul>
   </div>
-  <input value="Submit" type="submit" onclick="submitform()">
+  <input value="Submit" type="submit">
   </form>
+  JSON: <textarea id="asJSON"></textarea>
+  <script>
+  document.addEventListener("submit", function() {
+	setInterval(function() {
+	  var form = document.getElementById('form') || document.querySelector('form[name="userChecklist"]');
+	  var json = Array.from(new FormData(form)).map(function(e,i) {this[e[0]]=e[1]; return this;}.bind({}))[0];
+	  document.querySelector('#asJSON').value = JSON.stringify(json);
+	}, 1000);
+  })
+  </script>
   </body>
   </html>`;
   }
